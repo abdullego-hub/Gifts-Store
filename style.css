@@ -1,0 +1,385 @@
+/* ==========================================================================
+   1. RESET & BASE STYLES
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+  /* DARK PURPLE & ROMANTIC ROSE PALETTE */
+  --primary-deep: #190a1e;       /* Deep Midnight Plum/Eggplant */
+  --card-bg: #25122b;            /* Slightly lighter, warm deep purple for cards */
+  --accent-rose: #d3688b;        /* Velvet Berry Rose Pink */
+  --accent-rose-hover: #b84f72;  
+  --accent-gold: #d4af37;        /* Luxury Gold */
+  --accent-gold-hover: #bfa030;
+  
+  /* TEXT COLORS */
+  --text-main: #f0e6f2;          /* Very soft pink-tinted white for body text */
+  --text-highlight: #ffffff;     /* Pure White for headings */
+  --text-muted: #bda6c2;         /* Soft lavender-gray for descriptions */
+  
+  /* UI ELEMENTS */
+  --hero-overlay: rgba(28, 11, 30, 0.82); /* Rich Violet-Wine tint */
+  --shadow-dark: 0 10px 30px rgba(15, 5, 20, 0.5);
+  --shadow-dark-hover: 0 15px 40px rgba(15, 5, 20, 0.8);
+  --border-radius: 12px;
+  --transition-romantic: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+body {
+  background-color: var(--primary-deep);
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ==========================================================================
+   2. NAVIGATION BAR
+   ========================================================================== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: rgba(25, 10, 30, 0.93); /* Dark purple translucent navbar */
+  backdrop-filter: blur(12px); 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 8%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Logo styling */
+.navbar img {
+  height: 45px;
+  width: auto;
+  object-fit: contain;
+  border-radius: 10px;
+  padding: 2px;
+  background-color: #8c7194; /* Darker grape base for logo */
+}
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+  gap: 35px;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: var(--text-main);
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  transition: var(--transition-romantic);
+}
+
+.navbar ul li a:hover {
+  color: var(--accent-rose); /* Glows romantic pink on hover */
+}
+
+/* Login Button in Navbar */
+.navbar button {
+  background-color: transparent;
+  color: var(--accent-rose);
+  border: 2px solid var(--accent-rose);
+  padding: 8px 22px;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-romantic);
+}
+
+.navbar button:hover {
+  background-color: var(--accent-rose);
+  color: var(--text-highlight);
+  box-shadow: 0 0 15px rgba(211, 104, 139, 0.3);
+}
+
+/* ==========================================================================
+   3. HERO SECTION (With Romantic Overlay)
+   ========================================================================== */
+.hero {
+  background: linear-gradient(var(--hero-overlay), var(--hero-overlay)), 
+              url('https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=1600') no-repeat center center/cover;
+  height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--text-highlight);
+  padding: 0 20px;
+}
+
+.hero .overlay {
+  max-width: 800px;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+  letter-spacing: -1px;
+  line-height: 1.2;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.hero p {
+  font-size: 1.15rem;
+  margin-bottom: 35px;
+  color: var(--text-main);
+  opacity: 0.9;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Hero Action Buttons */
+.hero button {
+  padding: 14px 35px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 30px;
+  cursor: pointer;
+  margin: 0 12px;
+  transition: var(--transition-romantic);
+}
+
+/* "See More" - Gold Button */
+.hero button:first-of-type {
+  background-color: var(--accent-gold);
+  border: none;
+  color: var(--primary-deep);
+}
+
+.hero button:first-of-type:hover {
+  background-color: var(--accent-gold-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+}
+
+/* "Log In" - Rose Button */
+.hero button:last-of-type {
+  background-color: transparent;
+  border: 2px solid var(--accent-rose);
+  color: var(--accent-rose);
+}
+
+.hero button:last-of-type:hover {
+  background-color: var(--accent-rose);
+  color: var(--text-highlight);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(211, 104, 139, 0.3);
+}
+
+/* ==========================================================================
+   4. FEATURED GIFTS SECTION (Plum Cards)
+   ========================================================================== */
+.Gifts {
+  padding: 100px 8%;
+}
+
+.Gifts h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 60px;
+  position: relative;
+  letter-spacing: -0.5px;
+  color: var(--text-highlight);
+}
+
+/* Rose/Pink line indicator under main titles */
+.Gifts h1::after, 
+.why-choose h1::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: var(--accent-rose);
+  margin: 15px auto 0 auto;
+  border-radius: 2px;
+}
+
+.gift-box {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 35px;
+}
+
+.gift-item {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: 30px;
+  box-shadow: var(--shadow-dark);
+  transition: var(--transition-romantic);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.gift-item:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-dark-hover);
+  border-color: rgba(211, 104, 139, 0.25); /* Subtle rose pink glow */
+}
+
+.gift-item h3 {
+  font-size: 1.35rem;
+  font-weight: 600;
+  margin-bottom: 18px;
+  color: var(--text-highlight);
+}
+
+.gift-item img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 18px;
+}
+
+.gift-item p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 25px;
+  flex-grow: 1;
+}
+
+.gift-item h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--accent-gold);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.gift-item h2::after {
+  content: '→';
+  font-weight: 300;
+  opacity: 0.7;
+}
+
+/* ==========================================================================
+   5. WHY CHOOSE US SECTION (Deep Velvet Contrast)
+   ========================================================================== */
+.why-choose {
+  background-color: #100514; /* Deepest black-purple */
+  padding: 100px 8%;
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.why-choose h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 60px;
+  color: var(--text-highlight);
+}
+
+.why-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+.why-child {
+  background-color: var(--card-bg);
+  padding: 35px 30px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-dark);
+  text-align: center;
+  transition: var(--transition-romantic);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.why-child:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-dark-hover);
+  border-color: rgba(212, 175, 55, 0.25); /* Gold glow for these cards */
+}
+
+.why-child h2 {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+  color: var(--text-highlight);
+}
+
+.why-child p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 25px;
+  min-height: 48px;
+}
+
+/* Order Buttons on Cards */
+.why-child button {
+  background-color: transparent;
+  color: var(--accent-rose);
+  border: 2px solid var(--accent-rose);
+  padding: 10px 26px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-romantic);
+}
+
+.why-child button:hover {
+  background-color: var(--accent-rose);
+  color: var(--text-highlight);
+  box-shadow: 0 4px 12px rgba(211, 104, 139, 0.3);
+}
+
+/* ==========================================================================
+   6. FOOTER (Deepest Plum-Black)
+   ========================================================================== */
+.footer {
+  background-color: #0a030d;
+  color: var(--text-muted);
+  text-align: center;
+  padding: 50px 20px;
+  font-size: 0.95rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+/* ==========================================================================
+   7. RESPONSIVE DESIGN (Mobile & Tablets)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+  }
+  
+  .navbar ul {
+    gap: 20px;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .hero button {
+    display: block;
+    width: 90%;
+    margin: 12px auto;
+  }
+}
