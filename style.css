@@ -49,7 +49,7 @@ img {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background-color: rgba(25, 10, 30, 0.93); /* Dark purple translucent navbar */
+  background-color: rgba(25, 10, 30, 0.2); /* Dark purple translucent navbar */
   backdrop-filter: blur(12px); 
   display: flex;
   justify-content: space-between;
