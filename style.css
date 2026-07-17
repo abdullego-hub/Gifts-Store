@@ -383,3 +383,18 @@ img {
     margin: 12px auto;
   }
 }
+.social-icons {
+  display: flex;
+  gap: 1.5rem; /* Puts clean spacing between each icon */
+  justify-content: center; /* Centers them on the page */
+  padding: 2rem;
+}
+.social{
+  font-size: 1.5rem;
+  color: #b84f72;
+  transition: var(--transition-romantic);
+}
+.social:hover{
+  color: #bda6c2;
+  transform: translateY(-2px);
+}
